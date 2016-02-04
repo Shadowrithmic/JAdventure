@@ -49,4 +49,14 @@ public class PlayerTest {
         String actual = player.getName();
         assertEquals("Failure - old player not properly loaded", expected, actual);
     }
+
+    @Test
+    public void setCharacterGetCharacter()
+    {
+        Player player = new Player();
+        String expected ="test";
+        player.setCurrentCharacterType(expected);
+        String actual = player.getCurrentCharacterType();
+        assertEquals("", expected, actual);
+    }
 }
