@@ -49,4 +49,12 @@ public class PlayerTest {
         String actual = player.getName();
         assertEquals("Failure - old player not properly loaded", expected, actual);
     }
+
+    @Test
+    public void newVeteran(){
+        Player player = Player.getInstance("veteran");
+        int expected = 2;
+        int actual = player.getArmour();
+        assertEquals("Failure - new veteran not properly created", expected, actual);
+    }
 }
