@@ -49,7 +49,7 @@ public class PlayerTest {
         String actual = player.getName();
         assertEquals("Failure - old player not properly loaded", expected, actual);
     }
-
+    /*
     @Test
     public void newVeteran() {
         Player player = Player.getInstance("veteran");
@@ -65,4 +65,5 @@ public class PlayerTest {
         String actual = player.getCurrentCharacterType();
         assertEquals("", expected, actual);
     }
+    */
 }
