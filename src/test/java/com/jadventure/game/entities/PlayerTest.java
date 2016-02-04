@@ -51,6 +51,13 @@ public class PlayerTest {
     }
 
     @Test
+<<<<<<< HEAD
+    public void newVeteran(){
+        Player player = Player.getInstance("veteran");
+        int expected = 2;
+        int actual = player.getArmour();
+        assertEquals("Failure - new veteran not properly created", expected, actual);
+=======
     public void setCharacterGetCharacter()
     {
         Player player = new Player();
@@ -58,5 +65,6 @@ public class PlayerTest {
         player.setCurrentCharacterType(expected);
         String actual = player.getCurrentCharacterType();
         assertEquals("", expected, actual);
+>>>>>>> 58e270301884aa8b2dadd7f000580ee495c9c313
     }
 }
