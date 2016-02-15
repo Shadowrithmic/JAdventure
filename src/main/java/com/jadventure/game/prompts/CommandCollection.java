@@ -216,6 +216,11 @@ public enum CommandCollection {
         player.pickUpItem(arg.trim());
     }
 
+    @Command(command="pick and equip", aliases="pe", description="Pick up and equip an item", debug=false)
+    public void command_pe(String arg) {
+        player.pickAndEquip(arg.trim());
+    }
+
     @Command(command="drop", aliases="d", description="Drop an item", debug=false)
     public void command_d(String arg) {
         player.dropItem(arg.trim());
