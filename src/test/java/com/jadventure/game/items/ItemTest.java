@@ -45,7 +45,7 @@ public class ItemTest {
 	public void getNameWithColorTest()
 	{
 		Item milk = createMilk();
-		String expected =  "milk";
+		String expected =  "\u001B[34m" + "milk" + "\u001B[0m";
 
 		assertEquals(milk.getNameWithColor(), expected);
 

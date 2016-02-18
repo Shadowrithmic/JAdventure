@@ -44,7 +44,7 @@ public class Item {
 
     public String getNameWithColor()
     {
-        throw new UnsupportedOperationException("Method not implemented");
+        return Client.ANSI_BLUE + name + Client.ANSI_RESET;
     }
 
     public String getId() {
