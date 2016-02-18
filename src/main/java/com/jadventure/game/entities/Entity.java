@@ -21,6 +21,8 @@ public abstract class Entity {
     // All entities can attack, have health, have names
     private int healthMax;
     private int health;
+    private int mana;
+    private int manaMax;
     private String name;
     private String intro;
     private int level;
@@ -108,6 +110,25 @@ public abstract class Entity {
         this.healthMax = healthMax;
         if (health > healthMax) {
             health = healthMax;
+        }
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public int getManaMax() {
+        return manaMax;
+    }
+
+    public void setManaMax(int manaMax) {
+        this.manaMax = manaMax;
+        if(mana > manaMax){
+            mana = manaMax;
         }
     }
 

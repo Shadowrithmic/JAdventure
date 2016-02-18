@@ -58,6 +58,8 @@ public class EntityTest {
     public void testSetters() {
         entity.setHealth(50);
         assertEquals(entity.getHealth(), 50);
+        entity.setMana(50);
+        assertEquals(entity.getMana(), 50);
         assertTrue(entity.getHealthMax() >= entity.getHealth());
         entity.setGold(10);
         assertEquals(entity.getGold(), 10);
@@ -66,6 +68,9 @@ public class EntityTest {
         entity.setHealthMax(30);
         assertEquals(entity.getHealthMax(), 30);
         assertTrue(entity.getHealth() <= entity.getHealthMax());
+        entity.setManaMax(30);
+        assertEquals(entity.getManaMax(), 30);
+        assertTrue(entity.getMana() <= entity.getManaMax());
         entity.setLevel(3);
         assertEquals(entity.getLevel(), 3);
     }
