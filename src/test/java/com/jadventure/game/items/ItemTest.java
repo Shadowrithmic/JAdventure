@@ -41,7 +41,7 @@ public class ItemTest {
 		assertFalse(milk.equals(egg));
 	}
 
-	//Failed test
+
 	@Test
 	public void getNameWithColorTest()
 	{
