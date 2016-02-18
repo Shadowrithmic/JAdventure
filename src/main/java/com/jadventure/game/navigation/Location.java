@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.jadventure.game.Game;
 import com.jadventure.game.GameBeans;
 import com.jadventure.game.QueueProvider;
 import com.jadventure.game.entities.NPC;
@@ -168,7 +169,7 @@ public class Location implements ILocation {
         if (!items.isEmpty()) {
             QueueProvider.offer("Items:");
             for (Item item : items) {
-                QueueProvider.offer("    " + item.getName());
+                QueueProvider.offer("    " +  item.getNameWithColor() );
             }
         }
         List<NPC> npcs = getNpcs();
