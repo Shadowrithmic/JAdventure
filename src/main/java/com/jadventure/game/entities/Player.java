@@ -400,6 +400,11 @@ public class Player extends Entity {
         }
     }
 
+    public void pickAndEquip(String itemName){
+        pickUpItem(itemName);
+        equipItem(itemName);
+    }
+
     public void dequipItem(String itemName) {
          List<Item> items = searchEquipment(itemName, getEquipment());
          if (!items.isEmpty()) {

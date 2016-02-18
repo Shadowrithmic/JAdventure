@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.jadventure.game.entities.Player;
 import org.junit.Test;
 
 public class ItemTest {
