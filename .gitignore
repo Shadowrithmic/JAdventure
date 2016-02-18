@@ -5,6 +5,9 @@ json/locations.json
 
 *.eml
 
+# Coverage Output #
+*.html
+
 # Package Files #
 *.jar
 *.war
