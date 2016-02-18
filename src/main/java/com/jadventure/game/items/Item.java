@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.jadventure.game.Client;
 import com.jadventure.game.QueueProvider;
 import com.jadventure.game.entities.EquipmentLocation;
 
@@ -39,6 +40,11 @@ public class Item {
 
     public String getName() {
         return name;
+    }
+
+    public String getNameWithColor()
+    {
+        return Client.ANSI_BLUE + name + Client.ANSI_RESET;
     }
 
     public String getId() {

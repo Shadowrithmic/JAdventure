@@ -41,6 +41,17 @@ public class ItemTest {
 		assertFalse(milk.equals(egg));
 	}
 
+	//Failed test
+	@Test
+	public void getNameWithColorTest()
+	{
+		Item milk = createMilk();
+		String expected =  "\u001B[34m" + "milk" + "\u001B[0m";
+
+		assertEquals(milk.getNameWithColor(), expected);
+
+	}
+
     private Item createMilk() {
         Map<String, Integer> properties = new TreeMap<>();
         properties.put("health", Integer.valueOf(5));
@@ -60,5 +71,6 @@ public class ItemTest {
         Item item = new Item("fegg1", "food", "egg", "A nice egg", 1, properties);
         return item;
     }
+
 
 }
