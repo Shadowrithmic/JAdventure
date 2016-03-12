@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="JAdventure" basedir="." default="main">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:jacoco="antlib:org.jacoco.ant" name="JAdventure" basedir="." default="main">
+
+  <taskdef uri="antlib:org.jacoco.ant" />
+  <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"/>
 
   <property name="src.dir" value="src/main/java" />
   <property name="src.test.dir" value="src/test/java" />
@@ -13,6 +16,7 @@
   <property name="lib.dir" value="lib"/>
 
   <property name="one-jar.dist.dir" value="one-jar-ant"/>
+  <property name="findbugs.home" value="${basedir}/findbugs-3.0.1" />
   <import file="${one-jar.dist.dir}/one-jar-ant-task.xml" />
 
   <path id="libraries.path">
@@ -25,6 +29,15 @@
     <fileset dir="${lib.dir}" includes="**/*.jar"/>
   </path>
   <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
+
+  <target name="findbugs" depends="jar">
+    <findbugs home="${findbugs.home}"
+              output="xml"
+              outputfile="${basedir}/target/findbugs.xml">
+      <sourcePath path="${basedir}/src/java"/>
+      <class location="${findbugs.home}/lib/bcel-6.0-SNAPSHOT.jar"/>
+    </findbugs>
+  </target>
 
   <target name="resolve">
     <ivy:retrieve />
@@ -105,16 +118,19 @@
   </target>
 
   <target name="junit" depends="copy-resources, jar">
-    <junit printsummary="yes" haltonfailure="yes" showoutput="yes">
-      <classpath>
-        <path refid="classpath"/>
-        <path refid="application"/>
-      </classpath>
-      <formatter usefile="false" type="plain" />
-      <batchtest fork="yes">
-        <fileset dir="${src.test.dir}" includes="**/*Test.java"/>
-      </batchtest>
-    </junit>
+    <jacoco:coverage>
+      <junit printsummary="yes" haltonfailure="yes" showoutput="yes" fork="true" forkmode="once">
+        <classpath>
+          <path refid="classpath"/>
+          <path refid="application"/>
+        </classpath>
+        <formatter usefile="false" type="plain"/>
+        <batchtest fork="yes">
+          <fileset dir="${src.test.dir}" includes="**/*Test.java"/>
+        </batchtest>
+      </junit>
+    </jacoco:coverage>
+
   </target>
 
   <target name="run-app">

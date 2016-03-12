@@ -7,12 +7,15 @@ json/locations.json
 
 # Coverage Output #
 *.html
+jacoco.exec
 
 # Package Files #
 *.jar
 *.war
 *.ear
 build/jar/*.jar
+
+!/findbugs-3.0.1/*/*.jar
 
 # Directories #
 bin/
