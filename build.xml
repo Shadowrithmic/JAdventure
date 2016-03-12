@@ -33,7 +33,8 @@
   <target name="findbugs" depends="junit,compile">
     <findbugs home="${findbugs.home}"
               output="xml"
-              outputfile="${basedir}/findbugs.xml">
+              outputfile="${basedir}/findbugs.xml"
+              excludefilter="${basedir}/findbugs_filter.xml">
       <sourcePath path="${basedir}/src/java"/>
       <class location="${findbugs.home}/lib/bcel-6.0-SNAPSHOT.jar"/>
     </findbugs>
