@@ -15,6 +15,7 @@ jacoco.exec
 *.ear
 build/jar/*.jar
 
+# Include Packages for Findbugs #
 !/findbugs-3.0.1/*/*.jar
 
 # Directories #
@@ -47,3 +48,4 @@ nb-configuration.xml
 
 # Log files #
 *.log
+findbugs.xml
