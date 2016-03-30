@@ -36,7 +36,8 @@ public abstract class Entity {
     private double damage = 30;
     private double critChance = 0.0;
     private int armour;
-    private String weapon = "hands";
+    private String hands = "hands";
+    private String weapon = hands;
     private Map<EquipmentLocation, Item> equipment;
     protected Storage storage;
 
@@ -295,13 +296,13 @@ public abstract class Entity {
                 equipment.put(key, null);
             }
         }
-        if (!item.equals(itemRepo.getItem("hands"))) {
+        if (!item.equals(itemRepo.getItem(hands))) {
             addItemToStorage(item);
         }
         Map<String, String> result = new HashMap<String, String>();
         if (item.containsProperty("damage")) {
             double oldDamage = damage;
-            weapon = "hands";
+            weapon = hands;
             damage -= item.getProperty("damage");
             double diffDamage = damage - oldDamage;
             result.put("damage", String.valueOf(diffDamage));

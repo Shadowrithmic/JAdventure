@@ -13,8 +13,6 @@ import java.util.ArrayList;
  * does the according actions.
  */
 public class Game {
-    public ArrayList<Monster> monsterList = new ArrayList<Monster>();
-    public MonsterFactory monsterFactory = new MonsterFactory(); 
     public CommandParser parser;
     public Monster monster;
     Player player = null;
