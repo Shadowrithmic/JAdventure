@@ -420,8 +420,8 @@ public class Player extends Entity {
          Iterator<Entry<String, String>> iter = set.iterator();
          while (iter.hasNext()) {
               Entry<String, String> me = iter.next();
-              double value = Double.parseDouble((String) me.getValue());
-              switch ((String) me.getKey()) {
+              double value = Double.parseDouble(me.getValue());
+              switch (me.getKey()) {
                   case "damage": {
                           if (value >= 0.0) {
                               QueueProvider.offer(me.getKey() + ": " + this.getDamage() + " (+" + me.getValue() + ")");
