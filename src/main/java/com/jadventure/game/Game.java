@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Game {
     public CommandParser parser;
     public Monster monster;
-    Player player = null;
+    Player player;
 
     public Game(Player player, String playerType) throws DeathException {
           this.parser = new CommandParser(player);
