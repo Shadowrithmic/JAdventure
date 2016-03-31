@@ -63,7 +63,6 @@ public class ConversationManager {
     private void load() {
         String fileName = "json/npcs.json";
         JsonParser parser = new JsonParser();
-        File f = new File(fileName);
         try {
             Reader reader = new FileReader(fileName);
             JsonObject json = parser.parse(reader).getAsJsonObject();
@@ -86,7 +85,6 @@ public class ConversationManager {
         List<Line> start = new ArrayList<>();
         int i = 0;
         for (JsonElement entry : conversation) {
-            JsonObject details = entry.getAsJsonObject();
             start.add(getLine(i++, conversation));
         }
         lines.put(npc, start);

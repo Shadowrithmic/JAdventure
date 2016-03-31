@@ -45,13 +45,13 @@ public class BattleMenu extends Menus {
         if (player.getHealth() == 0) {
             QueueProvider.offer("You died... Start again? (y/n)");
             String reply = QueueProvider.take().toLowerCase();
-            while (!reply.startsWith("y") && !reply.startsWith("n")) {
+            while (!(reply.charAt(0) =='y' || reply.charAt(0) =='n')) {
                 QueueProvider.offer("You died... Start again? (y/n)");
                 reply = QueueProvider.take().toLowerCase();
             }
-            if (reply.startsWith("y")) {
+            if (reply.charAt(0) == 'y') {
                 throw new DeathException("restart");
-            } else if (reply.startsWith("n")) {
+            } else if (reply.charAt(0) == 'n') {
                 throw new DeathException("close");
             }
         }  else if (npcOpponent.getHealth() == 0) {

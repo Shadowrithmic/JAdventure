@@ -7,12 +7,16 @@ json/locations.json
 
 # Coverage Output #
 *.html
+jacoco.exec
 
 # Package Files #
 *.jar
 *.war
 *.ear
 build/jar/*.jar
+
+# Include Packages for Findbugs #
+!/findbugs-3.0.1/*/*.jar
 
 # Directories #
 bin/
@@ -44,3 +48,4 @@ nb-configuration.xml
 
 # Log files #
 *.log
+findbugs.xml

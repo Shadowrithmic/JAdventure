@@ -18,7 +18,7 @@ public enum Direction {
     private final int dy;
     private final int dz;
 
-    private Direction(String description, int dx, int dy, int dz) {
+    Direction(String description, int dx, int dy, int dz) {
         this.description = description;
         this.dx = dx;
         this.dy = dy;

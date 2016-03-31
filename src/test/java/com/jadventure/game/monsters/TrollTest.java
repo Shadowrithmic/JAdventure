@@ -22,6 +22,6 @@ public class TrollTest {
         Troll troll1 = new Troll(4);
         Troll troll2 = new Troll(4);
 
-        assertTrue(troll1.equals(troll2));
+        assertEquals(troll1, troll2);
     }
 }
