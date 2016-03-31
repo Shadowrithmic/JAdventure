@@ -18,12 +18,6 @@ public class BackpackDebugPrompt{
     // @Resource
     protected static ItemRepository itemRepo = GameBeans.getItemRepository();
 
-    private static String helpText = "\nlist: Lists the current item the player has\n"+
-                                     "add: Add a new item\n"+
-                                     "remove: Remove an item\n"+
-                                     "help: Prints this info\n"+
-                                     "exit: Exits the BackpackDebugMenu\n";
-
     public BackpackDebugPrompt(Player player){
         boolean continuePrompt = true;
         while(continuePrompt){
@@ -36,6 +30,11 @@ public class BackpackDebugPrompt{
         boolean continuePrompt = true;
         
         try {
+            String helpText = "\nlist: Lists the current item the player has\n" +
+                    "add: Add a new item\n" +
+                    "remove: Remove an item\n" +
+                    "help: Prints this info\n" +
+                    "exit: Exits the BackpackDebugMenu\n";
             if (command.startsWith("add")){
                 try {
                     Item appendItem = itemRepo.getItem(command.substring(3).trim());
