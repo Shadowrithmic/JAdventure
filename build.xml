@@ -3,7 +3,7 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:jacoco="antlib:org.jacoco.ant" name="JAdventure" basedir="." default="main">
 
   <taskdef uri="antlib:org.jacoco.ant" />
-  <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"/>
+  <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" classpath="/usr/share/apache-ant/lib/findbugs-ant.jar"/>
 
   <property name="src.dir" value="src/main/java" />
   <property name="src.test.dir" value="src/test/java" />
@@ -30,13 +30,14 @@
   </path>
   <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
 
-  <target name="findbugs" depends="junit,compile">
+  <target name="findbugs" depends="junit,compile" >
     <findbugs home="${findbugs.home}"
               output="xml"
               outputfile="${basedir}/findbugs.xml"
-              excludefilter="${basedir}/findbugs_filter.xml">
-      <sourcePath path="${basedir}/src/java"/>
-      <class location="${findbugs.home}/lib/bcel-6.0-SNAPSHOT.jar"/>
+              auxclasspath="${basedir}/lib/"
+              jvmargs="-Xmx1024m" >
+              <class location="${basedir}/build/classes/com/jadventure/" />
+              <sourcePath path="${src.dir}/"/>
     </findbugs>
   </target>
 
