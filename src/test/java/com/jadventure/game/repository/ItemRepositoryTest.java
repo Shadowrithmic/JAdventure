@@ -127,10 +127,10 @@ public class ItemRepositoryTest {
         Item armour = itemRepo.getRandomArmour(1);
         Item potion = itemRepo.getRandomPotion(1);
 
-        assertTrue(food instanceof Item);
-        assertTrue(weapon instanceof Item);
-        assertTrue(armour instanceof Item);
-        assertTrue(potion instanceof Item);
+        assertTrue(food != null);
+        assertTrue(weapon != null);
+        assertTrue(armour != null);
+        assertTrue(potion != null);
     }
     
     private Item createMilk() {
