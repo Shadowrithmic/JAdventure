@@ -17,6 +17,7 @@
 
   <property name="one-jar.dist.dir" value="one-jar-ant"/>
   <property name="findbugs.home" value="${basedir}/findbugs-3.0.1" />
+  <property name="pmd.home.dir" value="/opt/pmd-bin-5.4.1" />
   <import file="${one-jar.dist.dir}/one-jar-ant-task.xml" />
 
   <path id="libraries.path">
@@ -29,6 +30,24 @@
     <fileset dir="${lib.dir}" includes="**/*.jar"/>
   </path>
   <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
+
+  <path id="pmd2.classpath">
+    <pathelement location="${build}" />
+    <fileset dir="${pmd.home.dir}/lib/">
+      <include name="*.jar" />
+    </fileset>
+  </path>
+
+  <target name="pmd">
+    <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd2.classpath"/>
+    <pmd shortFilenames="true" rulesetfiles="${basedir}/pmd_rules.xml">
+      <sourcelanguage name="java" version="1.7"/>
+      <formatter type="xml" toFile="pmd.xml"/>
+      <fileset dir="${basedir}/src/">
+        <include name="**/*.java"/>
+      </fileset>
+    </pmd>
+  </target>
 
   <target name="findbugs" depends="junit,compile" >
     <findbugs home="${findbugs.home}"
